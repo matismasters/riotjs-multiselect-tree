@@ -1,5 +1,4 @@
 riot.tag2('multiselect-tree-node', '<li class="{selected: checked}"> <label riot-style="{indentationStyle}" for="{name}" onclick="{showHideChildren}"> <input id="{name}" if="{leaf}" type="checkbox" name="{name}" onclick="{selectNode}"> <span class="indentation-open-close-icon" if="{hasChildren}">{displayChildren ? \'-\' : \'+\'}</span> <span class="indentation-open-close-icon" if="{!hasChildren && !leaf}">&nbsp;</span> {data[parent.opts.name_attribute]} </label> <ul if="{children.length > 0 && displayChildren}"> <multiselect-tree-node each="{children}" name_attribute="{parent.opts.name_attribute}"></multiselect-tree-node> </ul> </li>', '', '', function(opts) {
-    this.displayChildren = true
     this.storage = this.parent.storage;
     this.level = this.parent.level + 1;
     this.hasChildren = this.children.length > 0;
@@ -16,7 +15,7 @@ riot.tag2('multiselect-tree-node', '<li class="{selected: checked}"> <label riot
     }
 
     this.showHideChildren = function () {
-      if (!this.leaf && this.children.length > 0) {
+      if (!this.leaf && this.hasChildren) {
         if (this.displayChildren) {
           this.displayChildren = false;
         } else {
