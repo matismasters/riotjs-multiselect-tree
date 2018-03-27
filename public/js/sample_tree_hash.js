@@ -42,6 +42,7 @@ var sample_tree_hash = {
                      "children":[
                         {
                            "name":"8-2",
+                           "leaf":true,
                            "data":{
                               "serie_id":2,
                               "category_ids":[
@@ -57,6 +58,7 @@ var sample_tree_hash = {
                         },
                         {
                            "name":"8-3",
+                           "leaf":true,
                            "data":{
                               "serie_id":3,
                               "category_ids":[
@@ -72,6 +74,7 @@ var sample_tree_hash = {
                         },
                         {
                            "name":"8-4",
+                           "leaf":true,
                            "data":{
                               "serie_id":4,
                               "category_ids":[
@@ -103,6 +106,7 @@ var sample_tree_hash = {
                "children":[
                   {
                      "name":"6-7",
+                     "leaf":true,
                      "data":{
                         "serie_id":7,
                         "category_ids":[
@@ -118,6 +122,7 @@ var sample_tree_hash = {
                   },
                   {
                      "name":"6-8",
+                     "leaf":true,
                      "data":{
                         "serie_id":8,
                         "category_ids":[
@@ -135,6 +140,7 @@ var sample_tree_hash = {
             },
             {
                "name":"1-49",
+               "leaf":true,
                "data":{
                   "serie_id":49,
                   "category_ids":[
@@ -164,6 +170,7 @@ var sample_tree_hash = {
          "children":[
             {
                "name":"2-39",
+               "leaf":true,
                "data":{
                   "serie_id":39,
                   "category_ids":[
@@ -179,6 +186,7 @@ var sample_tree_hash = {
             },
             {
                "name":"2-23",
+               "leaf":true,
                "data":{
                   "serie_id":23,
                   "category_ids":[
