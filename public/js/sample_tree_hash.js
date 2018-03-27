@@ -1,4 +1,4 @@
-var sample_tree_hash = {  
+var sampleTreeHash = {  
    "name":"ROOT",
    "data":{
 

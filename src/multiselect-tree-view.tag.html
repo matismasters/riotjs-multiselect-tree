@@ -1,18 +1,17 @@
 <multiselect-tree-view class="mtv-container">
   <ul class='root'>
     <multiselect-tree-node
-      each={ root_children }
+      each={ rootChildren }
       name_attribute={ parent.opts.name_attribute }
     ></multiselect-tree-node>
   </ul>
 
   <style scoped>
-    ul li {
-      list-style: none;
-    }
+    ul li { list-style: none; }
   </style>
 
   <script>
-    this.root_children = sample_tree_hash.children
+    // Getting tree in hash form
+    this.rootChildren = sampleTreeHash.children
   </script>
 </multiselect-tree-view>
