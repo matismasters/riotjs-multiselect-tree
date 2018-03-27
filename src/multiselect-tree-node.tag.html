@@ -1,0 +1,15 @@
+<multiselect-tree-node>
+  <li>
+    { data[parent.opts.name_attribute] }
+
+    <ul if={ children.length > 0 }>
+      <multiselect-tree-node 
+        each={ children }
+        name_attribute={ parent.opts.name_attribute }
+      ></multiselect-tree-node>
+    </ul>
+  </li>
+  <script>
+    console.log(opts)
+  </script>
+</multiselect-tree-node>
