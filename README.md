@@ -4,6 +4,8 @@ This Riot.js tag takes a hash of nested elements and renders it as a tree view. 
 
 Notes:
 - The tree only offers selectability to `leaf` nodes
+ 
+![Screencast demo of the tag](/doc-screencast-demo.gif?raw=true "Screencast demo")
 
 ## Usage
 
