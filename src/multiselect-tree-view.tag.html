@@ -7,9 +7,11 @@
   </ul>
 
   <script>
-    this.rootChildren = sampleTreeHash.children;
-    this.level = 0
-
+    this.rootChildren = JSON.parse(
+      this.opts.json_tree_hash || 
+      multiselectTreeViewDataHash
+    ).children;
+    this.level = 0;
     this.storage = new SelectedNodesStorage(this.root.localName);
   </script>
 
