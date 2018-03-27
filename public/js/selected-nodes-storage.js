@@ -4,7 +4,7 @@ class SelectedNodesStorage {
     this.rootBucket = tagName;
     this.storageAPI = riot.customStateStorage;
     this.nodeIdAttribute = 'name';
-    this.debug = true;
+    this.debug = false;
 
     this.storageAPI[this.rootBucket] = {
       "selectedNodes": [], 
@@ -13,9 +13,9 @@ class SelectedNodesStorage {
   }
 
   state() {
-    console.log(this.storageAPI[this.rootBucket]);
-    console.log(this.selectedNodesIds());
-    console.log(this.selectedNodes());
+    this.logMessage(this.storageAPI[this.rootBucket]);
+    this.logMessage(this.selectedNodesIds());
+    this.logMessage(this.selectedNodes());
   }
 
   addSelectedNode (nodeId, node) {
@@ -56,7 +56,7 @@ class SelectedNodesStorage {
 
   // Private
   logMessage (message) {
-    console.log(message);
+    if (this.debug) { console.log(message) }
   }
 
 
