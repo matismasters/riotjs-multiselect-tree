@@ -19,6 +19,7 @@
 
   <script>
     this.storage = this.parent.storage;
+    this.observer = this.parent.observer;
 
     this.level = this.parent.level + 1;
     this.hasChildren = this.children.length > 0;
@@ -32,6 +33,11 @@
         this.checked = false;
         this.storage.removeSelectedNode(e.item.name);
       }
+
+      this.observer.trigger('selected-update', { 
+        nodes: this.storage.selectedNodes(), 
+        ids: this.storage.selectedNodesIds()
+      });
     }
 
     this.showHideChildren = function () {
