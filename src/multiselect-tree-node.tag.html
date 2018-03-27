@@ -9,7 +9,7 @@
       { data[parent.opts.name_attribute] }
     </label>
 
-    <ul if={ children.length > 0 && displayChildren }>
+    <ul show={ children.length > 0 && displayChildren }>
       <multiselect-tree-node 
         each={ children }
         name_attribute={ parent.opts.name_attribute }
