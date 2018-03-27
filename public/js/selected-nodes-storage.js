@@ -1,19 +1,19 @@
 class SelectedNodesStorage {
 
-  constructor(tagName) {
-    this.rootBucket = tagName;
-    this.storageAPI = riot.customStateStorage;
-    this.nodeIdAttribute = 'name';
-    this.debug = true;
+  constructor(opts) {
+    this.rootBucket      = opts.tagName || 'selectedNodesStorage';
+    this.storage         = opts.storage || {};
+    this.nodeIdAttribute = opts.name || 'name';
+    this.debug           = opts.debug == 'true';
 
-    this.storageAPI[this.rootBucket] = {
+    this.storage[this.rootBucket] = {
       "selectedNodes": [], 
       "selectedNodesIds": [] 
     };
   }
 
   state() {
-    this.logMessage(this.storageAPI[this.rootBucket]);
+    this.logMessage(this.storage[this.rootBucket]);
     this.logMessage(this.selectedNodesIds());
     this.logMessage(this.selectedNodes());
   }
@@ -47,11 +47,11 @@ class SelectedNodesStorage {
   }
 
   selectedNodes () {
-    return this.storageAPI[this.rootBucket]['selectedNodes'];
+    return this.storage[this.rootBucket]['selectedNodes'];
   }
 
   selectedNodesIds () {
-    return this.storageAPI[this.rootBucket]['selectedNodesIds'];
+    return this.storage[this.rootBucket]['selectedNodesIds'];
   }
 
   // Private

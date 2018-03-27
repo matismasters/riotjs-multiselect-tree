@@ -11,8 +11,13 @@
       this.opts.json_tree_hash || 
       multiselectTreeViewDataHash
     ).children;
+
+    this.storage = new SelectedNodesStorage({
+      debug: this.opts.debug,
+      tagName: this.root.localName
+    });
+
     this.level = 0;
-    this.storage = new SelectedNodesStorage(this.root.localName);
   </script>
 
   <style scoped> 
