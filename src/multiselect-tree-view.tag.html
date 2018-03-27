@@ -1,5 +1,4 @@
 <multiselect-tree-view class="mtv-container">
-  <button onclick={updateAll}>update all</button>
   <ul class='root'>
     <multiselect-tree-node
       each={ rootChildren }
@@ -7,21 +6,41 @@
     ></multiselect-tree-node>
   </ul>
 
-  <style scoped>
-    ul li { list-style: none; }
-    li.selected { color: blue }
-    li label { font-weight: normal; }
-  </style>
-
   <script>
     // Getting tree in hash form
     this.rootChildren = sampleTreeHash.children;
-    this.bigFoot = { 'ana': 'never' };
 
     this.storage = new SelectedNodesStorage(this.root.localName);
-
-    this.updateAll = function () {
-      this.update();
-    }
   </script>
+
+  <style scoped> 
+    /* Default styles */
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: -1px;
+      display: block;
+      border-top: 1px solid #eaebec;
+      width: 100%;
+    }
+    li.selected {
+      border-left-width: 5px;
+      border-left-color: #2b8be9;
+    }
+    li label { 
+      font-weight: normal; 
+      white-space: normal;
+      text-transform: none;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 14px;
+      color: #555555;
+      margin: 0;
+      display: block;
+    }
+  </style>
+
 </multiselect-tree-view>
