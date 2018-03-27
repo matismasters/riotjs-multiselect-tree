@@ -1,4 +1,5 @@
 <multiselect-tree-view class="mtv-container">
+  <button onclick={updateAll}>update all</button>
   <ul class='root'>
     <multiselect-tree-node
       each={ rootChildren }
@@ -12,6 +13,13 @@
 
   <script>
     // Getting tree in hash form
-    this.rootChildren = sampleTreeHash.children
+    this.rootChildren = sampleTreeHash.children;
+    this.bigFoot = { 'ana': 'never' };
+
+    this.storage = new SelectedNodesStorage(this.root.localName);
+
+    this.updateAll = function () {
+      this.update();
+    }
   </script>
 </multiselect-tree-view>
