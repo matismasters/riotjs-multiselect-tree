@@ -12,6 +12,7 @@ Notes:
 You can also check the basic usage on the `public/index.html` file.
 
 - Remember to add riot.js to the page
+- Remember to load the file at js/selected-nodes-storage.js with the <script></script>
 - Remember to load the file at js/multiselect-tree.js with the <script></script>
 - Remember to mount the tag
 
