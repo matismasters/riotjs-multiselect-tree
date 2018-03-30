@@ -1,3 +1,5 @@
+// Version 0.1
+
 class SelectedNodesStorage {
 
   constructor(opts) {
