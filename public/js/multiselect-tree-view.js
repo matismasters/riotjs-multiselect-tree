@@ -1,4 +1,5 @@
 riot.tag2('multiselect-tree-node', '<li class="{selected: checked}"> <label riot-style="{indentationStyle}" for="{name}" onclick="{showHideChildren}"> <input id="{name}" if="{leaf}" type="checkbox" name="{name}" onclick="{selectNode}"> <span class="indentation-open-close-icon" if="{hasChildren}">{displayChildren ? \'-\' : \'+\'}</span> <span class="indentation-open-close-icon" if="{!hasChildren && !leaf}">&nbsp;</span> {data[parent.opts.name_attribute]} </label> <ul show="{hasChildren && displayChildren}"> <multiselect-tree-node each="{children}" name_attribute="{parent.opts.name_attribute}"></multiselect-tree-node> </ul> </li>', '', '', function(opts) {
+    this.instanceName = this.parent.instanceName;
     this.displayChildren = false;
     this.storage = this.parent.storage;
     this.observer = this.parent.observer;
@@ -16,7 +17,7 @@ riot.tag2('multiselect-tree-node', '<li class="{selected: checked}"> <label riot
         this.storage.removeSelectedNode(e.item.name);
       }
 
-      this.observer.trigger('selected-update', {
+      this.observer.trigger('selected-update' + this.instanceName, {
         nodes: this.storage.selectedNodes(),
         ids: this.storage.selectedNodesIds()
       });
@@ -33,6 +34,7 @@ riot.tag2('multiselect-tree-node', '<li class="{selected: checked}"> <label riot
     }
 });
 riot.tag2('multiselect-tree-view', '<ul class="root"> <multiselect-tree-node each="{rootChildren}" name_attribute="{parent.opts.name_attribute}"></multiselect-tree-node> </ul>', 'multiselect-tree-view ul,[data-is="multiselect-tree-view"] ul{ padding: 0; } multiselect-tree-view li,[data-is="multiselect-tree-view"] li{ font-family: \'Lato\', sans-serif; line-height: 2.5em; } multiselect-tree-view li span.indentation-open-close-icon,[data-is="multiselect-tree-view"] li span.indentation-open-close-icon{ border: 1px solid #888; border-radius: 15px; display: inline-block; width: 1.5em; height: 1.5em; line-height: 1.5em; text-align: center; font-size: 10px; position: relative; top: -0.1em; } multiselect-tree-view li.selected label,[data-is="multiselect-tree-view"] li.selected label{ border-left: 5px solid #2b8be9 !important; } multiselect-tree-view li label,[data-is="multiselect-tree-view"] li label{ position: relative; font-size: 14px; line-height: 18px; color: #313842; border: 1px solid #eaebec !important; display: block; padding: 10px; border-radius: 5px; }', 'class="mtv-container"', function(opts) {
+    this.instanceName = this.opts.instance_name || '-tree';
     this.rootChildren = JSON.parse(
       this.opts.json_tree_hash ||
       multiselectTreeViewDataHash

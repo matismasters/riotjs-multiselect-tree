@@ -18,6 +18,7 @@
   </li>
 
   <script>
+    this.instanceName = this.parent.instanceName;
     this.displayChildren = false;
     this.storage = this.parent.storage;
     this.observer = this.parent.observer;
@@ -35,7 +36,7 @@
         this.storage.removeSelectedNode(e.item.name);
       }
 
-      this.observer.trigger('selected-update', { 
+      this.observer.trigger('selected-update' + this.instanceName, { 
         nodes: this.storage.selectedNodes(), 
         ids: this.storage.selectedNodesIds()
       });
